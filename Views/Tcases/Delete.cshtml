@@ -1,0 +1,34 @@
+﻿@model WebApplication5.Models.TcaseClass
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+@Html.Partial("_Layout_this_page", "tcases")
+
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <dl class="dl-horizontal">
+
+
+        <dt>
+            Test Case ID
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.case_id_name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+    @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+    }
+</div>

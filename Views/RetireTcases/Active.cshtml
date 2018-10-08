@@ -1,0 +1,39 @@
+﻿@model WebApplication5.Models.RetireTcasesClass
+
+
+@Html.Partial("_Layout_this_page", "RetireTcases")
+
+
+<h3>Are you sure you want to Active this?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        @*<dt>
+            @Html.DisplayNameFor(model => model.case_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.case_id)
+        </dd>*@
+
+        <dt>
+            Case ID
+            @*@Html.DisplayNameFor(model => model.case_id_name)*@
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.case_id_name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Active" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

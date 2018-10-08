@@ -1,0 +1,26 @@
+﻿@model WebApplication5.Models.TcaseClass
+
+@{
+    ViewBag.Title = "Details";
+}
+
+@Html.Partial("_Layout_this_page", "tcases")
+
+
+<div>
+    <dl class="dl-horizontal">
+
+        <dt>
+            Test Case ID
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.case_id_name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.case_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

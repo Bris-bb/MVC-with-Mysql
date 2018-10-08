@@ -1,0 +1,21 @@
+﻿
+<h2 class="page_title" style="border-bottom: 2px solid #444d58;">
+    Admin Area
+</h2>
+
+<ul class="nav nav-tabs">
+    @if ((Object)Session["as_role"] != null)
+    {
+    <li role="presentation">@Html.ActionLink("Parent", "Index", "Parents")</li>
+    <li role="presentation">@Html.ActionLink("Children", "Index", "Children")</li>
+    }
+    <li role="presentation">@Html.ActionLink("Tags", "Index", "Tags")</li>
+    <li role="presentation">@Html.ActionLink("Retired Tags", "Index", "Retiretags")</li>
+    <li role="presentation" class="active">@Html.ActionLink("Tcases", "Index", "Tcases")</li>
+    <li role="presentation">@Html.ActionLink("Retired TCases", "Index", "RetireTcases")</li>
+    <a href="@Url.Action( "RefreshResults", "Tcases" )" style="color:blue !important;    padding: 7px;    border: 1px solid;    border-radius: 20px !important;    margin-top: 0px;    float: right;">Refresh Results</a>
+
+    @if ((Object)Session["as_role"]!=null) {
+    <li role="presentation">@Html.ActionLink("Users", "Index", "Users")</li>
+    }
+</ul>

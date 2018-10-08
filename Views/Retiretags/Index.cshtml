@@ -1,0 +1,33 @@
+﻿@model IEnumerable<WebApplication5.Models.RetiretagsClass>
+
+
+@Html.Partial("_Layout_this_page", "Retiretags")
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.tag_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tag_name)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.tag_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tag_name)
+            </td>
+            <td>
+                @Html.ActionLink("Active", "Active", new { id = item.tag_id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.tag_id })
+            </td>
+        </tr>
+    }
+
+</table>

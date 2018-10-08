@@ -1,0 +1,39 @@
+﻿@model IEnumerable<WebApplication5.Models.parentClass>
+
+
+@Html.Partial("_Layout_this_page", "Parents")
+
+<div class="btn-group" style="color:white !important;">
+    <span id="sample_editable_1_new" class="btn green">
+        <a href="~/parents/Create" style="color:white !important;text-decoration:none;">Create New</a>
+    </span>
+</div>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.parent_name)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.parent_name)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.parent_id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.parent_id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.parent_id })
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+
+

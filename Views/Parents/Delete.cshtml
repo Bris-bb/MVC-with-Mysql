@@ -1,0 +1,32 @@
+﻿@model WebApplication5.Models.parentClass
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+@Html.Partial("_Layout_this_page", "Parents")
+
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.parent_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.parent_name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+    @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+    }
+</div>

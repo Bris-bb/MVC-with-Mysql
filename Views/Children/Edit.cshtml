@@ -1,0 +1,57 @@
+﻿@model WebApplication5.Models.ChildrenClass
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+@Html.Partial("_Layout_this_page", "Children")
+
+
+@if (ViewBag.isExist != "NO")
+{
+<p class="exist_warning">
+    @ViewBag.isExist
+</p>
+}
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.child_id)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.child_name, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.child_name, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.child_name, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    @*<div class="form-group">
+        @Html.LabelFor(model => model.list_parent, "f_parent_id", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("list_parent", null, htmlAttributes: new { @name="f_parent_id", @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.f_parent_id, "", new { @class = "text-danger" })
+        </div>
+    </div>*@
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

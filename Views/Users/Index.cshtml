@@ -1,0 +1,52 @@
+﻿@model IEnumerable<WebApplication5.Models.UserClass>
+
+    @{
+    ViewBag.Title = "Index";
+    }
+
+    @Html.Partial("_Layout_this_page", "Users")
+
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.user_id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.user_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pwd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.role)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.user_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.user_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pwd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.role)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {   id=item.user_id   }) |
+                @Html.ActionLink("Details", "Details", new { id=item.user_id  }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.user_id })
+            </td>
+        </tr>
+        }
+
+    </table>

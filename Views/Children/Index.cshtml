@@ -1,0 +1,75 @@
+﻿@model IEnumerable<WebApplication5.Models.ChildrenClass>
+
+    @{
+    ViewBag.Title = "Index";
+    }
+    @Html.Partial("_Layout_this_page", "Children")
+
+
+    <div class="btn-group" style="color:white !important;">
+        <span id="sample_editable_1_new" class="btn green">
+            <a href="~/children/Create" style="color:white !important;text-decoration:none;">Create New</a>
+            
+        </span>
+    </div>
+
+
+    <table class="table" id="sample_1">
+        <thead>
+            <tr>
+                <th>
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.child_name)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.parent_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.child_name)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.child_id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.child_id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.child_id })
+                </td>
+            </tr>
+            }
+        </tbody>
+
+    </table>
+
+    @Scripts.Render("~/assets/global/plugins/jquery.min.js")
+    @Scripts.Render("~/assets/global/plugins/bootstrap/js/bootstrap.min.js")
+    @Scripts.Render("~/assets/global/plugins/js.cookie.min.js")
+    @Scripts.Render("~/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js")
+    @Scripts.Render("~/assets/global/plugins/jquery.blockui.min.js")
+    @Scripts.Render("~/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js")
+    <!-- END CORE PLUGINS -->
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    @Scripts.Render("~/assets/global/scripts/datatable.js")
+    @Scripts.Render("~/assets/global/plugins/datatables/datatables.min.js")
+    @Scripts.Render("~/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js")
+    @Scripts.Render("~/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js")
+    <!-- END PAGE LEVEL PLUGINS -->
+    <!-- BEGIN THEME GLOBAL SCRIPTS -->
+    @Scripts.Render("~/assets/global/scripts/app.min.js")
+    <!-- END THEME GLOBAL SCRIPTS -->
+    <!-- BEGIN PAGE LEVEL SCRIPTS -->
+    @Scripts.Render("~/assets/pages/scripts/table-datatables-ajax.min.js")
+    <!-- END PAGE LEVEL SCRIPTS -->
+    <!-- BEGIN THEME LAYOUT SCRIPTS -->
+    @Scripts.Render("~/assets/layouts/layout3/scripts/layout.min.js")
+    @Scripts.Render("~/assets/layouts/layout3/scripts/demo.min.js")
+    @Scripts.Render("~/assets/layouts/global/scripts/quick-sidebar.min.js")
+    @Scripts.Render("~/assets/layouts/global/scripts/quick-nav.min.js")
+
+    @Scripts.Render("~/Scripts/children.js")

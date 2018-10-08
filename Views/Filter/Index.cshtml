@@ -1,0 +1,190 @@
+﻿@model IEnumerable<WebApplication5.Models.parentClass>
+
+ 
+<style>
+    a, a:hover {
+        text-decoration: none;
+    }
+
+    .back_child {
+        float: right;
+        border-radius: 10px !important;
+        padding: 0px 6px;
+        background: #444444;
+        color: white;
+        display: none;
+    }
+
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: rgba( 255, 255, 255, .5 ) url('http://i.stack.imgur.com/FhHRx.gif') 50% 50% no-repeat;
+    }
+
+    /* When the body has the loading class, we turn
+    the scrollbar off with overflow:hidden */
+    body.loading .modal {
+        overflow: hidden;
+    }
+
+    /* Anytime the body has the loading class, our
+    modal element will be visible */
+    body.loading .modal {
+        display: block;
+    }
+
+    #sample_2 thead th label {
+        display: inline-block;
+        float: right;
+        margin-right: 20px;
+        font-weight: bold;
+        color: #ed078b;
+    }
+
+    .child div {
+        padding: 3px 15px;
+        background: #5d6b7a;
+
+    }
+
+        .child div label {
+            padding: 0 20px 0 10px;
+            color: orangered;
+        }
+</style>
+
+
+<h2 class="page_title" style="border-bottom: 2px solid #444d58;">Welcome</h2>
+
+@{
+    if (@ViewBag.isLogin)
+    {
+        <a href="~/Tags/Index" style="    padding: 7px;    border: 1px solid;    border-radius: 20px !important;    margin-top: 0px;    float: right;">Admin Area</a>
+    }
+}
+
+
+<!-- BEGIN HEADER -->
+<div class="page-header" style="height: 52px !important;margin-top: 48px;">
+    <!-- BEGIN HEADER TOP -->
+    <!-- END HEADER TOP -->
+    <!-- BEGIN HEADER MENU -->
+    <div class="page-header-menu" style="">
+        <div class="">
+
+            <!-- BEGIN HEADER SEARCH BOX -->
+            <!-- END HEADER SEARCH BOX -->
+            <!-- BEGIN MEGA MENU -->
+            <!-- DOC: Apply "hor-menu-light" class after the "hor-menu" class below to have a horizontal menu with white background -->
+            <!-- DOC: Remove data-hover="dropdown" and data-close-others="true" attributes below to disable the dropdown opening on mouse hover -->
+            <div class="hor-menu">
+                <ul class="nav navbar-nav">
+                    <li aria-haspopup="true" class="menu-dropdown classic-menu-dropdown ">
+                        <div class="btn-group margin-bottom-20" style=" margin-right: 80px; margin-top: 1px; margin-bottom: 1px;">
+                        <a class="btn blue-dark" href="javascript:;" data-toggle="dropdown">
+                             Filter
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                        </div>
+                        @*<a href="javascript:;">
+                            FILTER
+                            <span class="arrow"></span>
+                        </a>*@
+                        <ul class="dropdown-menu pull-left parent_list">
+
+                            @foreach (var item in Model)
+                    {
+                        <li aria-haspopup="true" class="dropdown-submenu">
+                            <a href="javascript:;" class="nav-link nav-toggle ">
+                                @item.parent_name
+                                <span class="arrow"></span>
+                            </a>
+                            <ul class="child_list dropdown-menu" data-parent_id="@item.parent_id"></ul>
+                        </li>
+            }
+
+                        </ul>
+                    </li>
+                </ul>
+
+
+            </div>
+            <div class="btn-group margin-bottom-10" style="float: right;  margin-right: 80px; margin-top: 9px;">
+                <a class="btn red" href="javascript:;" data-toggle="dropdown">
+                    <i class="fa fa-user"></i> Report
+                    <i class="fa fa-angle-down"></i>
+                </a>
+                <ul class="dropdown-menu left">
+                    <li>
+                        @Html.ActionLink("Untagged Ids", "UntaggedIds", "Filter")
+                    </li>
+                    <li>
+                        @Html.ActionLink("Parent&Children", "ParentAndChildren", "Filter")
+                    </li>
+                    <li>
+                        @Html.ActionLink("Tags", "Tags", "Filter")
+                    </li>
+
+                </ul>
+            </div>
+            <!-- END MEGA MENU -->
+        </div>
+    </div>
+    <!-- END HEADER MENU -->
+</div>
+<div class="row" style="">
+    
+</div>
+<!-- BEGIN HEADER -->
+<!-- END HEADER -->
+<div class="table_container" style="overflow: auto;padding: 20px;border: 1px dotted #c1c1c1;">
+    <table id="sample_2" class="table table-striped table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>
+                    Test Case ID
+                </th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+<div class="modal"><!-- Place at bottom of page --></div>
+
+<script src="~/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+<script src="~/assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="~/assets/global/plugins/js.cookie.min.js" type="text/javascript"></script>
+<script src="~/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+<script src="~/assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+<script src="~/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+<!-- END CORE PLUGINS -->
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<script src="~/assets/global/plugins/bootstrap-multiselect/js/bootstrap-multiselect.js" type="text/javascript"></script>
+
+<script src="~/assets/global/scripts/datatable.js" type="text/javascript"></script>
+<script src="~/assets/global/plugins/datatables/datatables.min.js" type="text/javascript"></script>
+<script src="~/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js" type="text/javascript"></script>
+<script src="~/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
+<!-- END PAGE LEVEL PLUGINS -->
+<!-- BEGIN THEME GLOBAL SCRIPTS -->
+<script src="~/assets/global/scripts/app.min.js" type="text/javascript"></script>
+<!-- END THEME GLOBAL SCRIPTS -->
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script src="~/assets/pages/scripts/components-bootstrap-multiselect.min.js" type="text/javascript"></script>
+
+<script src="~/assets/pages/scripts/table-datatables-ajax.min.js" type="text/javascript"></script>
+<!-- END PAGE LEVEL SCRIPTS -->
+<!-- BEGIN THEME LAYOUT SCRIPTS -->
+<script src="~/assets/layouts/layout3/scripts/layout.min.js" type="text/javascript"></script>
+<script src="~/assets/layouts/layout3/scripts/demo.min.js" type="text/javascript"></script>
+<script src="~/assets/layouts/global/scripts/quick-sidebar.min.js" type="text/javascript"></script>
+<script src="~/assets/layouts/global/scripts/quick-nav.min.js" type="text/javascript"></script>
+
+<script src="~/Scripts/filter.js"></script>
+

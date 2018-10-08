@@ -1,0 +1,61 @@
+﻿
+<h2 class="page_title" style="border-bottom: 2px solid #444d58;">
+    Admin Area
+</h2>
+
+<ul class="nav nav-tabs">
+    @if ((Object)Session["as_role"] != null)
+    {
+    if (Model == "Parents") {
+    <li role="presentation" class="active">@Html.ActionLink("Parent", "Index", "Parents")</li>
+    }
+    else {
+    <li role="presentation">@Html.ActionLink("Parent", "Index", "Parents")</li>
+    }
+    if (Model == "Children") {
+    <li role="presentation" class="active">@Html.ActionLink("Children", "Index", "Children")</li>
+    }
+    else {
+    <li role="presentation">@Html.ActionLink("Children", "Index", "Children")</li>
+    }
+    }
+
+    @if (Model == "Tags") {
+    <li role="presentation" class="active">@Html.ActionLink("Tags", "Index", "Tags")</li>
+    }
+    else {
+    <li role="presentation">@Html.ActionLink("Tags", "Index", "Tags")</li>
+    }
+
+    @if (Model == "Retiretags") {
+    <li role="presentation" class="active">@Html.ActionLink("Retired Tags", "Index", "Retiretags")</li>
+    }
+    else {
+    <li role="presentation">@Html.ActionLink("Retired Tags", "Index", "Retiretags")</li>
+    }
+
+    @if (Model == "tcases") {
+    <li role="presentation" class="active">@Html.ActionLink("Tcases", "Index", "Tcases")</li>
+    }
+    else {
+    <li role="presentation">@Html.ActionLink("Tcases", "Index", "Tcases")</li>
+    }
+
+    @if (Model == "RetireTcases") {
+    <li role="presentation" class="active">@Html.ActionLink("Retired Case IDs", "Index", "RetireTcases")</li>
+    }
+    else {
+    <li role="presentation">@Html.ActionLink("Retired Case IDs", "Index", "RetireTcases")</li>
+    }
+
+
+
+    @if ((Object)Session["sa_role"]!=null) {
+    if (Model == "Users") {
+    <li role="presentation" class="active">@Html.ActionLink("Users", "Index", "Users")</li>
+    }
+    else {
+    <li role="presentation">@Html.ActionLink("Users", "Index", "Users")</li>
+    }
+    }
+</ul>

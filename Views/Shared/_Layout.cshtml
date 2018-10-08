@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" type="image/x-icon" href="//img.imgsmail.ru/r/default/favicon.ico" />
+    <title>Enhance</title>
+    @Styles.Render("~/bootstrap/css/bootstrap.min.css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("https://code.jquery.com/jquery-3.2.1.min.js")
+    @Scripts.Render("~/Scripts/quick-nav.min.js")
+
+    @Styles.Render("~/Content/css/font-awesome.min.css")
+
+    @Styles.Render("~/Content/css/simple-line-icons.min.css")
+
+    @Styles.Render("~/Content/css/components.min.css")
+    @Styles.Render("~/Content/css/layout.min.css")
+    @Styles.Render("~/Content/css/default.min.css")
+
+
+
+
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" />
+
+    @Styles.Render("~/assets/global/plugins/font-awesome/css/font-awesome.min.css")
+    @Styles.Render("~/assets/global/plugins/simple-line-icons/simple-line-icons.min.css")
+    @Styles.Render("~/assets/global/plugins/bootstrap/css/bootstrap.min.css")
+    @Styles.Render("~/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css")
+    <!-- END GLOBAL MANDATORY STYLES -->
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    @Styles.Render("~/assets/global/plugins/bootstrap-select/css/bootstrap-select.min.css")
+
+    @Styles.Render("~/assets/global/plugins/datatables/datatables.min.css")
+    @Styles.Render("~/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css")
+    @Styles.Render("~/assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css")
+    <!-- END PAGE LEVEL PLUGINS -->
+    <!-- BEGIN THEME GLOBAL STYLES -->
+    @Styles.Render("~/assets/global/css/components.min.css")
+    @Styles.Render("~/assets/global/css/plugins.min.css")
+    <!-- END THEME GLOBAL STYLES -->
+    <!-- BEGIN THEME LAYOUT STYLES -->
+    @Styles.Render("~/assets/layouts/layout3/css/layout.min.css")
+    @Styles.Render("~/assets/layouts/layout3/css/themes/default.min.css")
+    @Styles.Render("~/assets/layouts/layout3/css/custom.min.css")
+
+    <style>
+        body {
+        }
+
+        .exist_warning {
+            color: red;
+            border: 1px dotted gray;
+            padding: 8px;
+        }
+
+        .body-content {
+            /*background: url(/Content/image/back.jpg) 100% 100% repeat;*/
+            padding: 50px 15px;
+            min-height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="~/">
+                    <i class="icon-settings"></i>
+                    Library AD
+                </a>
+            </div>
+            <div class="navbar-collapse collapse">
+
+               @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="body-content">
+        @RenderBody()
+        <footer>
+            @*<p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>*@
+        </footer>
+    </div>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>
